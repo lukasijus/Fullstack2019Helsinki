@@ -24,10 +24,26 @@ const Button = ({ onClick, text}) => (
 )
 
 const App = (props) => {
-    console.log('props value is', props)
     const [left, setLeft] = useState(0)
     const [right, setRight] = useState(0)
     const [allClicks, setAll] = useState([])
+    const [good, setGood] = useState(0)
+    const [neutral, setNeutral] = useState(0)
+    const [bad, setBad] = useState(0)
+
+const handleGoodClicks = () => {
+    setGood(good + 1)
+}
+
+const handleNeutralClicks = () => {
+    setNeutral(neutral + 1)
+}
+
+const handleBadClicks = () => {
+    setBad(bad + 1)
+}
+
+
 
 const handleLeftClicks = () => {
     setAll(allClicks.concat('L'))
@@ -42,12 +58,25 @@ const handleRightClicks = () => {
 return (
     <div>
         <div>
-            {left}
+            <h1>give feedback</h1>
+        </div>
+        <div>
+            <Button onClick={handleGoodClicks} text = 'good'></Button>
+            <Button onClick={handleNeutralClicks} text = 'neutral'></Button>
+            <Button onClick={handleBadClicks} text = 'bad'></Button>
+        </div>
+        <div>
+            <h1>statistics</h1>
+        </div>
+        <div>
+            <p>good: {good}</p>
+            <p>neutral: {neutral}</p>
+            <p>bad: {bad}</p>
+        </div>
+        <div>
             <Button onClick={handleLeftClicks} text = 'L'></Button>
             <Button onClick={handleRightClicks} text = 'R'></Button>
-            {right}
-            <History allClicks={allClicks}></History>
-        </div>
+            </div>
     </div>
 )
 }
