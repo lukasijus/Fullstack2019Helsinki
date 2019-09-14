@@ -31,7 +31,7 @@ const App = (props) => {
     const [neutral, setNeutral] = useState(0)
     const [bad, setBad] = useState(0)
 
-const handleGoodClicks = () => {
+const handleGoodClicks =     () => {
     setGood(good + 1)
 }
 
